@@ -1,0 +1,195 @@
+@font-face {
+    font-family:"Bd";
+    src: url(/index/font/HelveticaNeueLTPro-Bd.otf);
+}
+@font-face {
+    font-family:"HelveticaNeueLTPro-Lt_1";
+    src: url(/index/font/HelveticaNeueLTPro-Lt_1.otf);
+}@font-face {
+    font-family:"Md_1";
+    src: url(/index/font/HelveticaNeueLTPro-Md_1.otf);
+}
+.zky_big{
+    width:100%;
+    height:675px;
+}
+.zky_big .zky_container{
+    width: 1200px;
+    margin: 0 auto;
+    height:674px;
+    border-bottom: 1px dashed #cccccc;
+    padding:90px 0 0 85px;
+
+}
+.zky_tit{
+    margin-top:44px;
+    background: url("../images/zky-bg.png") no-repeat left top;
+    width:397px;
+    float: left;
+    height: 500px;
+    padding-top:20px;
+}
+.zky_tit h3{
+    font-size:24px;
+    font-family:"HelveticaNeueLTPro-Lt_1";
+    color:#0f0f0f;
+}
+
+.zky_tit h1{
+    font-size:32px;
+    font-family:"Bd";
+    color:#0f0f0f;
+}
+.zky_tit h4{
+    font-size:20px;
+    color:#0f0f0f;
+    padding:10px 0 40px 0;
+}
+.zky_tit .zky_text1{
+    font-size: 14px;
+    width:335px;
+    padding-bottom: 30px;
+}
+.zky_tit .zky_text2{
+    font-size: 12px;
+    width:348px;
+    line-height:20px;
+}
+.zky_pic{
+    width:705px;
+    height:500px;
+    float:left;
+}
+.zky_pic .zky_data{
+    height:28px;
+}
+.zky_data span:first-child{
+    font-size: 24px;
+    font-weight: bold;
+}
+.zky_data span:last-child{
+    font-size:16px;
+}
+.zky_ba{
+    width:100%;
+    height:448px;
+    position:relative;
+    background:url("../images/zky_pic1.png") no-repeat;
+    background-position: bottom right;
+}
+.zky_move{
+    width:576px;
+    height:366px;
+    border:3px solid #dddddd;
+    position:relative;
+    z-index:5;
+
+}
+.zky_move img{
+    position:absolute;
+    top:0;
+    left:0;
+    opacity: 0;
+    transition:all .8s ease;
+}
+.zky_move img.active{
+    opacity:1;
+}
+.zky_border1{
+    width:82px;
+    height:326px;
+    background:#efefef;
+    border: 1px solid #dddddd;
+    position: absolute;
+    left:505px;
+    top:22px;
+    z-index:4;
+
+}
+.zky_border2{
+    width:24px;
+    height:300px;
+    border: 1px solid #dddddd;
+    background:#ffffff;
+    position: absolute;
+    left:576px;
+    top:35px;
+    z-index:3;
+
+}
+.zky_border3{
+    width:38px;
+    height:284px;
+    border: 1px solid #dddddd;
+    position: absolute;
+    left:576px;
+    top:47px;
+    z-index:2;
+    background:#ffffff;
+
+}
+.zky_btns{
+    width:60px;
+    height:9px;
+    margin-top:70px;
+}
+.zky_btns .zky_btn{
+    width:9px;
+    height:9px;
+    float:left;
+    margin-left:6px;
+    position:relative;
+
+}
+.zky_btns .zky_btn img{
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    margin:auto auto;
+
+}
+
+.zky_titles{
+    width:1200px;
+    margin:0 auto;
+    text-align: center;
+    height:96px;
+    background:url("../images/zky_line.png")  bottom center no-repeat;
+    margin-top:50px;
+    margin-bottom:32px;
+
+}
+.zky_titles .zky_word_e{
+    font-size:18px;
+    line-height:44px;
+}
+.zky_titles .zky_word_c{
+    color:#333333;
+}
+
+.zky_display{
+    width:1200px;
+    border-bottom:1px dashed #cccccc;
+    text-align:center;
+    padding-bottom:40px;
+    margin: 0 auto;
+}
+.zky_context{
+    padding:85px 0;
+ }
+.zky_context p{
+    font-size:14px;
+    line-height:20px;
+}
+.zky_shi{
+    width:1200px;
+    margin:0 auto;
+    text-align: center;
+}
+.zky_vedio img{
+    width:963px;
+    height:642px;
+}
+

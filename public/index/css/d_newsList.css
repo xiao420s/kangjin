@@ -1,0 +1,131 @@
+@charset "UTF-8";
+#d_newsList {
+  /*width: 1200px;*/
+  margin: 0 auto; }
+  #d_newsList .NewsList {
+    width: 1040px;
+    margin: 0 auto; }
+  #d_newsList .item {
+    height: 290px;
+    margin-bottom: 80px; }
+    #d_newsList .item .item-content-l {
+      position: relative;
+      font-family: "HelveticaNeueLT Pro 45 Lt", "微软雅黑";
+      width: 480px;
+      height: 262px;
+      padding-top: 28px;
+      float: left; }
+    #d_newsList .item .item-content-r {
+      position: relative;
+      font-family: "HelveticaNeueLT Pro 45 Lt", "微软雅黑";
+      width: 480px;
+      height: 262px;
+      padding-top: 28px;
+      float: right; }
+      #d_newsList .item .item-content-r h2 {
+        text-align: right; }
+      #d_newsList .item .item-content-r h1 {
+        text-align: right; }
+    #d_newsList .item h2 {
+      font-size: 18px; }
+    #d_newsList .item h1 {
+      font-size: 24px;
+      font-weight: bold; }
+    #d_newsList .item .line-l {
+      width: 260px;
+      height: 3px;
+      margin-top: 20px; }
+      #d_newsList .item .line-l span {
+        display: block; }
+    #d_newsList .item .line-r {
+      width: 260px;
+      height: 3px;
+      margin-top: 20px;
+      float: right; }
+      #d_newsList .item .line-r span {
+        display: block; }
+    #d_newsList .item .greenLine-l {
+      width: 55px;
+      height: 3px;
+      float: left;
+      background-color: #007b00; }
+    #d_newsList .item .greenLine-r {
+      width: 55px;
+      height: 3px;
+      float: right;
+      background-color: #007b00; }
+    #d_newsList .item .grayLine-l {
+      width: 202px;
+      height: 1px;
+      float: right;
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      background-color: #e5e5e5; }
+    #d_newsList .item .grayLine-r {
+      width: 202px;
+      height: 1px;
+      float: left;
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      background-color: #e5e5e5; }
+    #d_newsList .item .instruction-l {
+      height: 15px;
+      width: 235px;
+      margin-top: 17px;
+      overflow: hidden; }
+    #d_newsList .item .instruction-r {
+      height: 15px;
+      width: 235px;
+      margin-top: 17px;
+      float: right;
+      overflow: hidden; }
+    #d_newsList .item li {
+      font-size: 12px;
+      height: 15px;
+      padding-left: 20px;
+      float: left; }
+    #d_newsList .item .time {
+      background-image: url("../images/icon_calendar.png");
+      background-repeat: no-repeat;
+      background-position: left 2px;
+      width: 100px; }
+    #d_newsList .item .author {
+      background: url("../images/icon_author.png") left;
+      background-repeat: no-repeat;
+      background-position: left 2px;
+      width: 80px; }
+    #d_newsList .item .views {
+      background: url("../images/icon_views.png") left;
+      background-repeat: no-repeat;
+      background-position: left 2px;
+      width: 55px; }
+    #d_newsList .item .abstract {
+      display: block;
+      width: 480px;
+      height: 65px;
+      margin-top: 25px;
+      font-size: 14px;
+      overflow: hidden;
+      float: right; }
+    #d_newsList .item .lookAll-l {
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      font-size: 12px; }
+    #d_newsList .item .lookAll-r {
+      position: absolute;
+      bottom: 0px;
+      right: 0;
+      font-size: 12px; }
+    #d_newsList .item .item-img-l {
+      width: 515px;
+      height: 290px;
+      float: right;
+      overflow: hidden; }
+    #d_newsList .item .item-img-r {
+      width: 515px;
+      height: 290px;
+      float: left;
+      overflow: hidden; }
+
+/*# sourceMappingURL=d_newsList.css.map */

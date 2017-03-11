@@ -1,0 +1,42 @@
+.Adminrecruitdetailsbox{
+    padding-top:16px;
+
+}
+.Adminrecruitdetailsbox i{
+    font-style: normal;
+    display: block;
+    float:left;
+    width:14%;
+    line-height: 28px;
+    margin:10px 0;
+}
+.Adminrecruitdetailsbox .con{
+    text-align: center;
+}
+.Adminrecruitdetailsbox .con:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.Adminrecruitdetailsbox .con input{
+    border:1px solid skyblue;
+    margin:10px 0;
+    display: block;
+    float:right;
+    width:86%;
+}
+.Adminrecruitdetailsbox .con .duohang{
+    border:1px solid skyblue;
+    margin:10px 0;
+    float:right;
+    display: block;
+    width:86%;
+}
+
+/*.Adminrecruitdetailsbox .ant-btn{*/
+    /*display:inline-block;*/
+    /*margin:0 auto;*/
+/*}*/
+/*.Adminrecruitdetailsbox .ant-btn{*/
+    /*display: block;*/
+/*}*/

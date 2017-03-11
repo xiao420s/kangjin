@@ -1,0 +1,123 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+#w_contactbox {
+  width: 100%;
+  height: auto; }
+  #w_contactbox .contact {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden; }
+  #w_contactbox .caption {
+    width: 200px;
+    height: 60px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #d0d0d0;
+    position: relative; }
+    #w_contactbox .caption h1 {
+      width: 200px;
+      height: 20px;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      font-size: 18px;
+      font-weight: normal;
+      letter-spacing: 8px; }
+    #w_contactbox .caption span {
+      width: 54px;
+      height: 3px;
+      background: #007b00;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      margin: auto; }
+  #w_contactbox .w_policy {
+    width: 100%;
+    height: 530px; }
+  #w_contactbox .policy-ul {
+    width: 100%;
+    height: 450px;
+    margin-top: 30px;
+    overflow: hidden; }
+    #w_contactbox .policy-ul li {
+      width: 100%;
+      margin-bottom: 30px;
+      text-align: left; }
+      #w_contactbox .policy-ul li h4 {
+        font-size: 16px;
+        margin-bottom: 25px; }
+      #w_contactbox .policy-ul li p {
+        font-size: 14px;
+        line-height: 1.6em;
+        color: #333; }
+  #w_contactbox .hr {
+    width: 1100px;
+    height: 20px;
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: normal; }
+    #w_contactbox .hr a {
+      display: block;
+      width: 80px;
+      height: 20px;
+      float: right;
+      font-style: normal;
+      linn-height: 20px;
+      text-decoration: none;
+      color: #333; }
+    #w_contactbox .hr i {
+      float: right;
+      margin-top: 4px;
+      display: inline-block;
+      width: 8px;
+      height: 14px;
+      background: url("../images/1_03.png") no-repeat center center; }
+  #w_contactbox .w_flow {
+    width: 100%;
+    height: 390px;
+    margin-top: 60px; }
+  #w_contactbox .flow-ul {
+    width: 100%;
+    height: 256px;
+    overflow: hidden; }
+    #w_contactbox .flow-ul li {
+      margin-bottom: 22px;
+      font-size: 14px;
+      line-height: 1.5em;
+      text-align: left;
+      color: #333; }
+  #w_contactbox .w_message {
+    width: 100%;
+    height: 770px;
+    margin-top: 120px; }
+  #w_contactbox .message-ul {
+    width: 1100px;
+    height: 650px;
+    overflow: hidden; }
+    #w_contactbox .message-ul li {
+      width: 100%;
+      height: 80px;
+      border-top: 1px solid #d0d0d0;
+      margin-bottom: 33px; }
+      #w_contactbox .message-ul li span {
+        display: inline-block;
+        width: 100%;
+        text-align: right;
+        color: #4e4e4e;
+        font-size: 12px;
+        margin-top: 11px; }
+      #w_contactbox .message-ul li p {
+        margin-top: 11px;
+        text-align: left;
+        font-size: 14px;
+        color: #1e1e1e;
+        line-height: 1.5em; }

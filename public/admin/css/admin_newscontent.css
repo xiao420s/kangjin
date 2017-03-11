@@ -1,0 +1,50 @@
+.NewsContent {
+    width: 800px;
+    min-height: 574px;
+    margin: 0 auto;
+}
+
+.NewsContent > div {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.NewsContent > div > span {
+    display: block;
+    width: 10%;
+    text-align: right;
+    float: left;
+}
+
+.NewsContent input {
+    display: block;
+    width: 87%;
+    float: right;
+}
+
+.NewsContent textarea {
+    display: block;
+    resize: none;
+    height: 300px;
+    width: 87%;
+    float: right;
+}
+
+.NewsContent .abstract textarea {
+    height: 150px;
+}
+
+.NewsContent .newsButton {
+    text-align: center;
+}
+
+.NewsContent .ant-upload-list {
+    margin-left: 23px;
+}
+
+.NewsContent .ant-btn {
+    margin-left: 77px;
+    margin-bottom: 30px;
+}
+
+/*# sourceMappingURL=admin_newscontent.css.map */

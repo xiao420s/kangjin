@@ -1,0 +1,380 @@
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+.text-center{
+    text-align: center;
+}
+/*产品展示*/
+.tab{
+    height:516px;
+    width: 872px;
+    margin:0 auto;
+}
+.list{
+    height:134px;
+    font-size: 18px;
+    line-height: 1em;
+    padding-top: 52px;
+    text-align: center;
+}
+.list li{
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 24px;
+    color: #333;
+    position: relative;
+}
+.list li div{
+    position: absolute;
+    width:0;
+    height:0;
+    border-left: #fff solid 4px;
+    border-bottom: #007b00 solid 7px;
+    border-right: #fff solid 4px;
+    left:50%;
+    margin-left: -4px;
+    bottom: -20px;
+    display: none;
+}
+.list li:hover{
+    color: #007b00;
+}
+.list li:hover div{
+    display: block;
+}
+.list .active{
+    color: #007b00;
+}
+.list .active div{
+    display: block;
+}
+.tab .items{
+    height: 382px;
+    position: relative;
+}
+.seam_items{
+    position: absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+}
+.seam_items .prev{
+    position: absolute;
+    left:0;
+    top:110px;
+    cursor: pointer;
+}
+.seam_items .next{
+    position: absolute;
+    right:0;
+    top:110px;
+    cursor: pointer;
+}
+.seam_items .content{
+    width: 696px;
+    height:262px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    position: relative;
+}
+.seam_items .all{
+    color: #333;
+}
+.seam_items .all span{
+    font-family: consolas,sans-serif;
+    font-size: 20px;
+    margin-left: 6px;
+}
+.seam_items .indicator{
+    height:20px;
+    width: 144px;
+    margin:44px auto 40px auto;
+}
+.seam_items .indicator li{
+    width: 36px;
+    margin: 0 6px;
+    float: left;
+    cursor: pointer;
+    height:100%;
+}
+.seam_items .indicator li div{
+    height:4px;
+    margin:8px 0;
+    background: #99ca99;
+}
+.seam_items .indicator .active div{
+    background: #007b00;
+}
+.seam_items .content .item_box{
+    width:2088px;
+    height: 254px;
+    position: absolute;
+    left:0;
+    top:4px;
+    transition: transform 0.5s ease;
+}
+.seam_items .content .item_box li{
+    height: 100%;
+    width: 192px;
+    margin: 0 20px;
+    float:left;
+    border: 1px solid #dcdcdc;
+    cursor: pointer;
+}
+.seam_items .content .item_box li:hover{
+    box-shadow: 0px 0px 8px #dddddd;
+}
+.seam_items .img_box{
+    height: 138px;
+    overflow: hidden;
+}
+.seam_items .img_box img{
+    width: 100%;
+}
+.seam_items .bar{
+    padding-right: 24px;
+    text-align: right;
+    font-size: 18px;
+    line-height: 24px;
+    padding-top: 10px;
+    color:#727272;
+}
+.seam_items .bar .eng{
+    font-size: 24px;
+    font-family: bold,sans-serif;
+}
+.seam_items .bar .pinyin{
+    font-family: light,sans-serif;
+}
+.seam_items .bar .name{
+    margin-top: 16px;
+}
+/*关于我们*/
+.about{
+    height:654px;
+    padding-top: 80px;
+    padding-left:118px;
+}
+.about .left{
+    width: 386px;
+    height:100%;
+    float: left;
+    margin-right: 22px;
+    position: relative;
+}
+.about .right{
+    width:664px;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+.about img{
+    position: absolute;
+    left:0;
+    bottom: 0;
+}
+.about .left .about_eng{
+    font-family:light, sans-serif;
+    width: 84px;
+    font-size: 40px;
+    line-height: 60px;
+    color: #848484;
+    transform: rotateZ(90deg) translate3d(-8px,-4px,0);
+}
+.about .right p{
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 20px;
+}
+.about .right .about_eng{
+    font-family:light, sans-serif;
+    font-size: 12px;
+    color: #070707;
+    line-height: 18px;
+}
+.about .decorate{
+    position: absolute;
+    width: 6px;
+    height:74px;
+    background: #f0f0f0;
+    left:402px;
+    bottom:336px;
+}
+.about .decorate_{
+    position: absolute;
+    width: 6px;
+    height:38px;
+    background: #000;
+    left:402px;
+    bottom:54px;
+}
+.about .all_box{
+    position: absolute;
+    bottom: 0;
+    left:402px;
+}
+.about .all_box .all{
+    color: #333;
+}
+.about .all_box .all span{
+    font-family: consolas,sans-serif;
+    font-size: 20px;
+    margin-left: 6px;
+}
+/*绿色产业链*/
+.green{
+    height: 458px;
+    width: 100%;
+    background: #f3f3f3;
+    position: relative;
+}
+.green .bg{
+    position: absolute;
+    left:50%;
+    margin-left: -488px;
+    bottom:-152px;
+}
+.green .content{
+    position: absolute;
+    height:100%;
+    width: 270px;
+    left:50%;
+    top:0;
+}
+.green .content .green_sm{
+    width: 1em;
+    line-height: 1em;
+    color: #363636;
+    top:44px;
+    position: absolute;
+}
+.green .content .green_title{
+    right:20px;
+    font-size: 24px;
+}
+.green .content .green_stitle{
+    top:45px;
+    right: 56px;
+    font-size: 20px;
+}
+.green .content .green_content{
+    font-size: 14px;
+    color: #4a4a4a;
+    top:46px;
+}
+.green .content .green_content span{
+    writing-mode:tb-rl;
+}
+.green .content .green_eng{
+    position: absolute;
+    right: 20px;
+    top:234px;
+    writing-mode:tb-rl;
+    color: #636261;
+    font-family: light, sans-serif;
+    font-size: 14px;
+}
+/*企业风采*/
+.mien{
+    width:916px;
+    height:578px;
+    margin:86px auto 0 auto;
+}
+.mien .mien_left{
+    float: left;
+    height:100%;
+    width:550px;
+    margin-right:14px;
+}
+.mien .mien_right{
+    width:352px;
+    float: left;
+}
+.mien img{
+    display: block;
+}
+.mien .mien_top{
+    margin-bottom: 14px;
+    position: relative;
+}
+.mien .mien_top_box{
+    position: absolute;
+    width: 296px;
+    height:308px;
+    left:0;
+    top:0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    border: 1px solid #5c6667;
+    padding-top: 22px;
+    padding-left: 34px;
+    line-height: 24px;
+}
+.mien .decorate{
+    width:68px;
+    height:3px;
+    background: #333;
+    margin-bottom: 10px;
+}
+.mien .mien_eng{
+    color:#001010;
+    font-size: 24px;
+    font-family: light, sans-serif;
+    width: 160px;
+}
+.mien .mien_title{
+    color:#141414;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.mien .mien_content{
+    font-size: 12px;
+    color:#161616;
+    width: 230px;
+}
+/*数据跳动*/
+.record{
+    height:116px;
+    width:916px;
+    margin: 0 auto;
+}
+.record .srecord{
+    width: 136px;
+    height:116px;
+    margin-right: 124px;
+    float: left;
+    position: relative;
+}
+.record .srecord:last-child{
+    margin-right:0;
+}
+.record .record_eng{
+    font-size: 14px;
+    color: #b2b2b2;
+    font-family: light, sans-serif;
+    font-style: italic;
+    line-height: 18px;
+}
+.record .record_name{
+    color: #868686;
+    font-size: 14px;
+    line-height: 18px;
+}
+.record .record_num{
+    font-size: 48px;
+    line-height: 60px;
+    color: #868686;
+    font-family: light, sans-serif;
+}
+.record .srecord div{
+    position: absolute;
+    left:0;
+    bottom: 0;
+    width: 36px;
+    height: 6px;
+    background: #7d7d7d;
+}

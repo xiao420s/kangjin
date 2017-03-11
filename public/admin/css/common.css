@@ -1,0 +1,307 @@
+.header{
+    height:196px;
+    width:1200px;
+    margin:0 auto;
+    padding-top: 22px;
+    text-align: center;
+}
+.header img{
+    display: block;
+    margin: 0 auto;
+}
+.header .logo{
+    margin: 8px auto 22px auto;
+}
+.header .items{
+    display: inline-block;
+    position: relative;
+}
+.header .items:hover{
+    background: #f3f3f3;
+}
+.header .items:hover .item{
+    color: #619f61;
+}
+.header .items:hover .items-ul{
+    display: block;
+}
+.header .items .item{
+    padding: 0 18px;
+    line-height: 38px;
+}
+.header .items-ul{
+    position: absolute;
+    top:34px;
+    left:0;
+    width: 100%;
+    line-height: 30px;
+    padding: 6px 0 4px 0;
+    background: #f3f3f3 url(/public/admin/images/s_bot.png) no-repeat center top;
+    display: none;
+    z-index: 10;
+}
+.header .items-ul a{
+    color: #3b3b3b;
+}
+.header .items-ul li:hover a{
+    color: #619f61;
+}
+.banner{
+    height: 496px;
+    padding-top: 94px;
+    position: relative;
+}
+.banner .bg{
+    height: 300px;
+    background:#f3f3f3;
+}
+.banner .items{
+    position: absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width: 100%;
+}
+.banner .items img{
+    position: absolute;
+}
+.banner .items .left{
+    top:170px;
+    left:50%;
+    margin-left: -412px;
+}
+.banner .items .center{
+    left:50%;
+    top:0;
+    margin-left: -230px;
+}
+.banner .items .right{
+    left:50%;
+    bottom: 0;
+    margin-left: 298px;
+}
+@font-face {
+    font-family: light;
+    src: url(/public/admin/font/HelveticaNeueLTPro-Lt_1.otf);
+}
+@font-face {
+    font-family: mbold;
+    src: url(/public/admin/font/HelveticaNeueLTPro-Md_1.otf);
+}
+@font-face {
+    font-family: bold;
+    src: url(/public/admin/font/HelveticaNeueLTPro-Bd.otf);
+}
+.stitle{
+    height:100px;
+    width:1200px;
+    margin:0 auto;
+    background: transparent url(/public/admin/images/s_title_top.png) no-repeat center 6px;
+    text-align: center;
+    font-size:18px;
+    padding-top: 42px;
+}
+.stitle p{
+    font-family: light,sans-serif;
+}
+.stitle span{
+    font-family: mbold,sans-serif;
+    margin: 0 6px;
+}
+.stitle .stitle_name{
+    margin: 12px 0 16px 0;
+    color: #333;
+}
+.stitle .stitle_bottom{
+    height:4px;
+    background: transparent url(/public/admin/images/s_title_bottom.png) no-repeat center top;
+}
+
+/*底部开始*/
+.zh_footer{
+    width: 100%;
+    height:460px;
+    background: url("../images/zh_footer.png")no-repeat center center;
+    background-size: cover;
+    margin-top: 100px;
+    position: relative;
+}
+.zh_footer .zh_shade{
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: 0.5;
+}
+.zh_footer .zh_table{
+    width: 775px;
+    height: 237px;
+    /*background: red;*/
+    position: absolute;
+    z-index: 2;
+    top:84px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.zh_footer .zh_table .zh_table-l{
+    height: 100%;
+    width: 257px;
+    float: left;
+    /*background: yellow;*/
+}
+.zh_footer .zh_table .zh_table-l input{
+    width: 100%;
+    height: 42px;
+    margin-bottom: 14px;
+    border: 1px solid #333;
+    background: transparent;
+    font-size: 18px;
+}
+.zh_footer .zh_table .zh_table-r{
+    height: 155px;
+    width: 500px;
+    float: right;
+}
+.zh_footer .zh_table .zh_table-r textarea{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #333;
+    background: transparent;
+    resize: none;
+    font-size: 18px;
+}
+
+.zh_footer .zh_table .btn{
+    width: 140px;
+    height: 42px;
+    border: 1px solid #333;
+    position: absolute;
+    left: 0;
+    right:0;
+    margin: 0 auto;
+    bottom:0;
+    background: transparent;
+    cursor: pointer;
+    text-align: center;
+    line-height: 42px;
+    /*letter-spacing: 10px;*/
+}
+.zh_footer .zh_contact{
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    bottom: 35px;
+}
+.zh_footer .zh_contact .zh_contactbox{
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 45px;
+}
+.zh_footer .zh_contact .zh_contactbox ul{
+    width: 33%;
+    text-align: center;
+    line-height: 40px;
+    float: left;
+}
+/*底部结束*/
+/*面包屑开始*/
+.zh_crumbs{
+    width: 1200px;
+    height: 25px;
+    margin: 0 auto;
+    /*background: red;*/
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.zh_crumbs ul{
+    padding: 0 20px;
+    height: 100%;
+    width: auto;
+    /*background: yellow;*/
+    position: relative;
+}
+.zh_crumbs ul li{
+    height: 100%;
+    font-size: 14px;
+    line-height: 25px;
+    background: url("../images/zh_b_03.png")no-repeat left center;
+    float: left;
+    text-align: right;
+}
+.zh_crumbs ul li a{
+    padding-left:18px;
+    padding-right: 5px;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+}
+.zh_crumbs ul li a span{
+    font-size: 18px;
+    font-family:Consolas,sans-serif;
+    margin-left:4px;
+}
+/*面包屑结束*/
+/*分页导航开始*/
+.zh_page{
+    width: 1200px;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    /*background: yellow;*/
+}
+.zh_page .zh_pagebox{
+    padding: 0 40px;
+    height: 100%;
+    /*background: red;*/
+    /*margin: 0 auto;*/
+    text-align: center;
+}
+.zh_page .zh_pagebox a{
+    margin: 0 20px;
+    transition: all ease .8s;
+}
+.zh_page .zh_pagebox a:hover{
+    background: #007b00;
+    color: #fff;
+}
+
+.zh_page .zh_pagebox .zh_all{
+    width: 78px;
+    height: 30px;
+    display: inline-block;
+    border: 1px solid #d2d2d2;
+    border-radius: 15px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+    color: #727272;
+}
+.zh_page .zh_pagebox .zh_pages{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #d2d2d2;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    color: #727272;
+    font-size: 14px;
+}
+.zh_page .zh_pagebox .zh_active{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #d2d2d2;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    font-size: 14px;
+    background: #007b00;
+    color: #fff;
+}
+/*分页导航结束*/

@@ -1,0 +1,86 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+}
+#w_news{
+    width:100%;
+    height:auto;
+}
+#w_news .w_content{
+    width:1040px;
+    height:745px;
+    margin:0 auto;
+    position: relative;
+}
+#w_news .w_content .data{
+    float:right;
+    min-width:98px;
+    height:30px;
+    position: absolute;
+    right:0;
+    top:0;
+}
+#w_news .w_content .data i{
+    display: block;
+    margin-top:7px;
+    width:15px;
+    height:15px;
+    background: url("../images/4_03.png") no-repeat center center;
+    margin-right:9px;
+    float: left;
+}
+#w_news .w_content .data span{
+    font-size:14px;
+    line-height: 30px;
+    float:left;
+}
+#w_news .w_content .title{
+    width:100%;
+    height:30px;
+    line-height: 30px;
+    position: absolute;
+    left:0;
+    top:0;
+}
+#w_news .w_content .title h1{
+    width:100%;
+    text-align: center;
+    font-size:24px;
+
+}
+#w_news .w_content .words{
+    width:100%;
+    height:auto;
+    position: absolute;
+    left:0;
+    top:54px;
+}
+#w_news .w_content .words p{
+    width:100%;
+    font-size:14px;
+    color:#222222;
+    line-height: 2.0em;
+    margin:25px 0;
+}
+#w_news .w_content .imgbox{
+    width:100%;
+    min-height:325px;
+    position: absolute;
+    left:0;
+    top:410px;
+}
+#w_news .w_content .imgbox .picbox:nth-child(1){
+    width:583px;
+    height:325px;
+    overflow: hidden;
+    float:left;
+}
+#w_news .w_content .imgbox .picbox{
+    width:421px;
+    height:325px;
+    overflow: hidden;
+    float:right;
+    margin-bottom:40px;
+}

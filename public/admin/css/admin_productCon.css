@@ -1,0 +1,55 @@
+.NewsContent {
+  width: 800px;
+  min-height: 574px;
+  margin: 0 auto; }
+  .NewsContent > div {
+    margin-top: 20px;
+    overflow: hidden; }
+  .NewsContent > div > span {
+    display: block;
+    width: 10%;
+    text-align: right;
+    line-height: 24px;
+    float: left; }
+  .NewsContent input {
+    display: block;
+    width: 87%;
+    float: right; }
+  .NewsContent textarea {
+    display: block;
+    resize: none;
+    height: 150px;
+    width: 87%;
+    float: right; }
+  .NewsContent .proID {
+    width: 29%;
+    float: left;
+    margin-left: 56px;
+    overflow: hidden; }
+    .NewsContent .proID span {
+      display: block;
+      width: 10%;
+      line-height: 24px;
+      text-align: right;
+      float: left; }
+    .NewsContent .proID input {
+      width: 79%; }
+  .NewsContent .proName {
+    width: 63%;
+    float: right;
+    overflow: hidden; }
+    .NewsContent .proName span {
+      display: block;
+      width: 12%;
+      line-height: 24px;
+      text-align: right;
+      float: left; }
+  .NewsContent .newsButton {
+    text-align: center; }
+  .NewsContent .ant-upload-list {
+    margin-left: 23px; }
+  .NewsContent .ant-btn {
+    margin-left: 77px;
+    margin-bottom: 30px; }
+
+/*# sourceMappingURL=admin_productCon.css.map */

@@ -1,0 +1,51 @@
+#tab {
+  width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 135px; }
+  #tab .tabTitle {
+    /*width: 650px;*/
+    text-align: center;
+    height: 42px;
+    margin: 0 auto; }
+  #tab .titleItem {
+    position: relative;
+    width: 147px;
+    height: 42px;
+    margin-left: 5px;
+    margin-right: 5px;
+    /*float: left;*/
+    display: inline-block;
+    text-align: center;
+    background-color: #f3f3f3;
+    cursor: pointer; }
+  #tab h1 {
+    font-size: 16px; }
+  #tab h2 {
+    font-size: 12px; }
+  #tab span {
+    position: absolute;
+    display: block;
+    width: 8px;
+    height: 2px;
+    background: #000000; }
+  #tab span.left {
+    left: 22px;
+    top: 20px; }
+  #tab span.right {
+    right: 22px;
+    top: 20px; }
+  #tab .tabLine {
+    width: 1122px;
+    height: 1px;
+    margin: 0 auto;
+    background: #000; }
+  #tab .active {
+    background: #007b00; }
+    #tab .active h1 {
+      color: #fff; }
+    #tab .active h2 {
+      color: #a3c4a3; }
+    #tab .active span {
+      background: #ffffff; }
+
+/*# sourceMappingURL=tab.css.map */
