@@ -28,7 +28,7 @@ class SiderDemo extends React.Component {
         var path=location.pathname;
         var patharr=path.split('/');
         patharr.shift();
-        if(patharr.length==2){
+        if(!patharr[1]){
             index='admin/product';
         }else{
             index=patharr[0]+'/'+patharr[1];
