@@ -10,7 +10,11 @@ router.get('/',(req,res)=>{
         return;
     }
     if(req.cookies.hash){
-        pool("select * from admin_user where hash=?",[req.cookies.hash],(result)=>{
+        pool("select * from admin_user where hash=?",[req.cookies.hash],(err,result)=>{
+            if(err){
+                res.sendFile(path.resolve("./views/admin/login.html"));
+                return;
+            }
             if(result.length){
                 req.session.login=true;
                 res.redirect('/admin');
@@ -19,7 +23,6 @@ router.get('/',(req,res)=>{
             }
         })
     }else{
-        console.log(1);
         res.sendFile(path.resolve("./views/admin/login.html"));
     }
 });
@@ -32,7 +35,11 @@ router.post('/check',(req,res)=>{
     const hash = crypto.createHash('md5');
     hash.update(req.body.password);
     const password=hash.digest('hex');
-    pool("select * from admin_user where account=? and password=?",[req.body.userName,password],(result)=>{
+    pool("select * from admin_user where account=? and password=?",[req.body.userName,password],(err,result)=>{
+        if(err){
+            res.json('errc');
+            return;
+        }
          if(result.length){
              if(req.body.remember){
                  res.cookie('hash',result[0].hash,{expires:new Date(Date.now()+7*24*3600*1000),path:'/'});

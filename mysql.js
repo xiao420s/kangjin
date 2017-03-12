@@ -1,4 +1,3 @@
-
 const mysql=require('mysql');
 const mysqlpool=mysql.createPool({
     host:'localhost',
@@ -8,14 +7,14 @@ const mysqlpool=mysql.createPool({
     connectionLimit:1000
 });
 function pool(sql,para,fn){
-    mysqlpool.getConnection((err,con)=>{
+    mysqlpool.getConnection((error,con)=>{
         if(para instanceof Array){
             con.query(sql,para,(err,res)=>{
-                fn(res);
+                fn(err,res);
             });
         }else{
             con.query(sql,(err,res)=>{
-                para(res);
+                para(err,res);
             })
         }
     })

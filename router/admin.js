@@ -31,22 +31,22 @@ router.get('/news',(req,res)=>{
     res.sendFile(path.resolve("./views/admin/admin_news.html"));
 });
 router.get('/news/getCates',(req,res)=>{
-    pool('select * from content_cates order by cate_id desc',(result)=>{
+    pool('select * from content_cates order by cate_id desc',(err,result)=>{
         res.json(result);
     })
 });
 router.post('/news/updateCate',(req,res)=>{
-    pool('update content_cates set cate_name=? where cate_id=?',[req.body.cate_name,req.body.cate_id],(result)=>{
+    pool('update content_cates set cate_name=? where cate_id=?',[req.body.cate_name,req.body.cate_id],(err,result)=>{
         res.json(result);
     })
 });
 router.get('/news/del/:cate_id',(req,res)=>{
-    pool('delete from content_cates where cate_id=?',[req.params.cate_id],(result)=>{
+    pool('delete from content_cates where cate_id=?',[req.params.cate_id],(err,result)=>{
         res.json(result);
     })
 });
 router.get('/news/add',(req,res)=>{
-    pool('insert into content_cates (cate_name) values ("")',[req.params.cate_id],(result)=>{
+    pool('insert into content_cates (cate_name) values ("")',[req.params.cate_id],(err,result)=>{
         res.json(result.insertId);
     })
 });
@@ -59,22 +59,22 @@ router.get('/product',(req,res)=>{
     res.sendFile(path.resolve("./views/admin/admin_product.html"));
 });
 router.get('/product/getCates',(req,res)=>{
-    pool('select * from product_cates order by cate_id desc',(result)=>{
+    pool('select * from product_cates order by cate_id desc',(err,result)=>{
         res.json(result);
     })
 });
 router.post('/product/updateCate',(req,res)=>{
-    pool('update product_cates set cate_name=? where cate_id=?',[req.body.cate_name,req.body.cate_id],(result)=>{
+    pool('update product_cates set cate_name=? where cate_id=?',[req.body.cate_name,req.body.cate_id],(err,result)=>{
         res.json(result);
     })
 });
 router.get('/product/del/:cate_id',(req,res)=>{
-    pool('delete from product_cates where cate_id=?',[req.params.cate_id],(result)=>{
+    pool('delete from product_cates where cate_id=?',[req.params.cate_id],(err,result)=>{
         res.json(result);
     })
 });
 router.get('/product/add',(req,res)=>{
-    pool('insert into product_cates (cate_name) values ("")',[req.params.cate_id],(result)=>{
+    pool('insert into product_cates (cate_name) values ("")',[req.params.cate_id],(err,result)=>{
         res.json(result.insertId);
     })
 });
