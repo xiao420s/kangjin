@@ -113,13 +113,13 @@ td:nth-child(3){
     height: 13px;
     margin: 0 auto;
     margin-bottom: 15px;
-    background: url("/public/admin/images/76295594739587907.png");
+    background: url("/index/images/76295594739587907.png");
 }
 .line{
     width: 466px;
     height: 3px;
     margin: 0 auto;
-    background: url("/public/admin/images/619466272034623314.png");
+    background: url("/index/images/619466272034623314.png");
 }
 
 .rec_title{

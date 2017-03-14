@@ -12,7 +12,6 @@ router.get('/',(req,res)=>{
 });
 //产品内容图片
 router.post('/upload',upload.single('wangEditorH5File'),(req,res)=>{
-    console.log(req.file);
     const filename=req.file.filename+'.'+(req.file.mimetype.split('/')[1]);
     async.series([(callback)=>{
         fs.createReadStream(path.resolve(req.file.path)).pipe(fs.createWriteStream(path.resolve('./public/product',filename)));
@@ -104,7 +103,6 @@ router.get('/admin_news/del/thumb/:id',(req,res)=>{
     })
 });
 router.post('/admin_news/upload/thumb/:id',upload.single('file'),(req,res)=>{
-    console.log(req.file)
     const filename=req.file.filename+'.'+(req.file.mimetype.split('/')[1]);
     async.series([(callback)=>{
         fs.createReadStream(path.resolve(req.file.path)).pipe(fs.createWriteStream(path.resolve('./public/product',filename)));
@@ -123,7 +121,6 @@ router.post('/admin_news/upload/thumb/:id',upload.single('file'),(req,res)=>{
     }])
 });
 router.post('/admin_news/updatecontent/:cate_id', (req, res)=> {
-    console.log(req.body)
     pool('update content set title=?,author=?, content=?,subtitle=? where c_id=?',
         [req.body.title,req.body.author, req.body.content,req.body.subtitle,req.params.cate_id], (err, data)=> {
             if (err) {
@@ -313,7 +310,6 @@ router.get('/admin_healthcontent/del/thumb/:id',(req,res)=>{
 });
 
 router.post('/admin_healthcontent/upload/thumb/:id',upload.single('file'),(req,res)=>{
-    console.log(req.file);
     const filename=req.file.filename+'.'+(req.file.mimetype.split('/')[1]);
     async.series([(callback)=>{
         fs.createReadStream(path.resolve(req.file.path)).pipe(fs.createWriteStream(path.resolve('./public/product',filename)));
@@ -340,7 +336,6 @@ router.post('/admin_health/getcontentlist/:id',(req,res)=>{
 });
 
 router.post('/admin_health/updatecontent/:cate_id', (req, res)=> {
-    console.log(req.body);
     pool('update health set title=?,author=?, content=?,subtitle=? where c_id=?',
         [req.body.title,req.body.author, req.body.content,req.body.subtitle,req.params.cate_id], (err, data)=> {
             if (err) {
@@ -385,7 +380,6 @@ router.get('/admin_recruit/:cat_id/getid',(req,res)=>{
 router.post('/admin_recruit/:cat_id/updateinfo',(req,res)=>{
 
     pool('update recruit set job=?, num=?, demand=? where id=?',[req.body.job,req.body.num,req.body.demand,req.body.id],(err,result)=>{
-        console.log(result)
         if(!err){
             res.json('ok')
         }

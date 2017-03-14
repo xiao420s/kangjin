@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 module.exports = {
     entry: {
-        index: path.resolve('./dev/index.jsx')
+        p_display: path.resolve('./dev/p_display.jsx')
     },
     output: {
         path: path.resolve('./public/index/js'),

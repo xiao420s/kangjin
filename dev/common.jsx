@@ -77,20 +77,44 @@ class sTitle extends React.Component{
 exports.Title=sTitle;
 //底部组件
 class Footer extends React.Component{
+    constructor(props) {
+        super(props);
+        this.submit = this.submit.bind(this);
+    }
+    submit(e){
+        e.preventDefault();
+        var data = {name: this.name.value,mail:this.mail.value, phone: this.phone.value, message: this.message.value};
+        fetch('/message', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'same-origin',
+            body: JSON.stringify(data)
+        }).then((res)=>res.json()).then((data)=> {
+            if (data !== 'err') {
+                alert('插入成功');
+
+            }
+        })
+    }
     render(){
         return(
             <div className="zh_footer">
                 <div className="zh_shade"></div>
                 <div className="zh_table">
-                    <div className="zh_table-l">
-                        <input type="text" placeholder="姓名"/>
-                        <input type="text" placeholder="邮箱"/>
-                        <input type="text" placeholder="电话"/>
-                    </div>
-                    <div className="zh_table-r">
-                        <textarea name="" id=""></textarea>
-                    </div>
-                    <div className="btn">提交留言</div>
+                    <form method="post">
+                        <div className="zh_table-l">
+                            <input type="text" placeholder="姓名" name="userName" ref={(el)=>{this.name=el}} />
+                            <input type="text" placeholder="邮箱" name="mail" ref={(el)=>{this.mail=el}}/>
+                            <input type="text" placeholder="电话" name="phone" ref={(el)=>{this.phone=el}}/>
+                        </div>
+                        <div className="zh_table-r">
+                            <textarea name="message" id="" ref={(el)=>{this.message=el}}></textarea>
+                        </div>
+                        {/*<div className="btn" onClick={this.submit}>提交留言</div>*/}
+                        <input type="submit" className="btn" value="提交留言" onClick={this.submit} />
+                    </form>
                 </div>
                 <div className="zh_contact">
                     <div className="zh_contactbox">
@@ -122,7 +146,7 @@ class Crumbs extends React.Component{
             <div className="zh_crumbs">
                 <ul>
                     <li>
-                        <a href="javascript:void(0);">首页 <span>&gt;</span></a>
+                        <a href="/">首页 <span>&gt;</span></a>
                     </li>
                         {this.props.data.map((v,i)=><li key={i} className={i+1===length?'active':''}><a href={v.href} className={i+1===length?'zh_color':''}>{v.title}
                             {i+1===length?'':<span>></span>}</a></li>)}
