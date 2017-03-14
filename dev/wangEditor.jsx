@@ -1,5 +1,6 @@
 const React=require('react');
 const ReactDOM=require('react-dom');
+import { Button } from 'antd';
 class Editor extends React.Component{
     constructor(props){
         super(props);
@@ -13,6 +14,9 @@ class Editor extends React.Component{
             }
             return item;
         });
+        this.editor.config.uploadHeaders = {
+            'Accept' : 'text/x-json'
+        };
         this.editor.create();
         if(this.props.content){
             this.editor.$txt.html(this.props.content);
@@ -22,9 +26,8 @@ class Editor extends React.Component{
         return (
             <div>
             <div ref={(el)=>{this.e=el}} style={this.props.style}></div>
-                <a onClick={()=>{this.props.save(this.editor.$txt.html())}}>提交</a>
+                <Button type="primary" onClick={()=>{this.props.save(this.editor.$txt.html())}} style={{display:'block',margin:'10px auto'}}>保存</Button>
             </div>
-
         )
     }
 }

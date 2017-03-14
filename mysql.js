@@ -4,10 +4,11 @@ const mysqlpool=mysql.createPool({
     database:'kangjin',
     user:'root',
     password:'',
-    connectionLimit:1000
+    connectionLimit:10000
 });
 function pool(sql,para,fn){
     mysqlpool.getConnection((error,con)=>{
+        console.log(error);
         if(para instanceof Array){
             con.query(sql,para,(err,res)=>{
                 fn(err,res);

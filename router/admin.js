@@ -6,10 +6,11 @@ const multer=require('multer');
 const upload=multer({dest:'./upload/'});
 const fs=require('fs');
 const async=require('async');
-
+//首页
 router.get('/',(req,res)=>{
     res.sendFile(path.resolve("./views/admin/admin_product.html"));
 });
+//产品内容图片
 router.post('/upload',upload.single('wangEditorH5File'),(req,res)=>{
     console.log(req.file);
     const filename=req.file.filename+'.'+(req.file.mimetype.split('/')[1]);
@@ -24,6 +25,7 @@ router.post('/upload',upload.single('wangEditorH5File'),(req,res)=>{
     }])
 });
 ////////////////////
+//新闻分类管理
 router.get('/news',(req,res)=>{
     res.sendFile(path.resolve("./views/admin/admin_news.html"));
 });
@@ -50,6 +52,7 @@ router.get('/news/add',(req,res)=>{
     })
 });
 //////////////////////////
+//新闻列表
 router.get('/admin_news',(req,res)=>{
     res.sendFile(path.resolve("./views/admin/admin_NewsList.html"));
 });
@@ -60,9 +63,6 @@ router.get('/admin_news/newsall', (req, res)=> {
 });
 router.get('/admin_news/add',(req,res)=>{
     pool('insert into content (title,views,content,subtitle,cate_id) values ("","","","",1)',(err,result)=>{
-        // if (!err) {
-        //     res.redirect('/admin/admin_news');
-        // }
         res.json(result.insertId);
     })
 });
@@ -82,10 +82,59 @@ router.get('/admin_news/delete/:c_id', (req, res)=> {
         })
 });
 //////////////////////////
+//新闻详情页
 router.get('/admin_news/:cat_id',(req,res)=>{
     res.sendFile(path.resolve("./views/admin/admin_newsContent.html"));
 });
+router.post('/admin_news/getcontentlist/:id',(req,res)=>{
+    pool('select * from content where c_id=?',[req.params.id],(err,result)=>{
+        res.json(result);
+    })
+});
+router.get('/admin_news/:id/getThumb',(req,res)=>{
+    pool("select c_id,img_url from content where c_id=?",[req.params.id],(err,result)=>{
+        res.json(result);
+    })
+})
+router.get('/admin_news/del/thumb/:id',(req,res)=>{
+    pool('update content set img_url="" where c_id=?',[req.params.id],(err,result)=>{
+        if(!err){
+            res.json('ok');
+        }
+    })
+});
+router.post('/admin_news/upload/thumb/:id',upload.single('file'),(req,res)=>{
+    console.log(req.file)
+    const filename=req.file.filename+'.'+(req.file.mimetype.split('/')[1]);
+    async.series([(callback)=>{
+        fs.createReadStream(path.resolve(req.file.path)).pipe(fs.createWriteStream(path.resolve('./public/product',filename)));
+        callback(null);
+    },(callback)=>{
+        fs.unlink(path.resolve(req.file.path));
+        callback(null);
+    },(callback)=>{
+        pool('update content set img_url=? where c_id=?',[`/product/${filename}`,req.params.id],(err,result)=>{
+            if(!err){
+                res.json({id:req.params.id,src:`/product/${filename}`});
+            }else{
+                res.json('err');
+            }
+        })
+    }])
+});
+router.post('/admin_news/updatecontent/:cate_id', (req, res)=> {
+    console.log(req.body)
+    pool('update content set title=?,author=?, content=?,subtitle=? where c_id=?',
+        [req.body.title,req.body.author, req.body.content,req.body.subtitle,req.params.cate_id], (err, data)=> {
+            if (err) {
+                res.json('err');
+            } else {
+                res.json(data.insertId);
+            }
+        });
+});
 /////////////////////
+//产品分类
 router.get('/product',(req,res)=>{
     res.sendFile(path.resolve("./views/admin/admin_product.html"));
 });
@@ -112,6 +161,7 @@ router.get('/product/add',(req,res)=>{
     })
 });
 /////////////////////
+//产品列表
 router.get('/admin_productList',(req,res)=>{
     res.sendFile(path.resolve("./views/admin/admin_Lproductlist.html"));
 });
@@ -149,6 +199,7 @@ router.post('/update_productList/:id',(req,res)=>{
     })
 });
 //////////////////////////
+//产品详情
 router.get('/admin_productList/:cat_id',(req,res)=>{
     res.sendFile(path.resolve("./views/admin/admin_productCon.html"));
 });
@@ -219,19 +270,129 @@ router.get('/admin_productList/:cat_id/getCrousel',(req,res)=>{
     })
 });
 //////////////////////////
+//营养保健列表
 router.get('/admin_health',(req,res)=>{
     res.sendFile(path.resolve("./views/admin/admin-industry.html"));
 });
+router.get('/admin_health/all',(req,res)=>{
+    pool('select * from health order by c_id desc',(err,result)=>{
+        res.json(result)
+    })
+});
+router.get('/admin_health/add',(req,res)=>{
+    pool('insert into health (title,views,subtitle) values ("","","")',
+        (req,result)=>{
+            res.json(result.insertId);
+        })
+});
+router.get('/admin_health/del/:c_id',(req,res)=>{
+    pool('delete from health where c_id=?',[req.params.c_id],(err,result)=>{
+        if(!err){
+            res.redirect('/admin/admin_health');
+        }
+        // res.json(result);
+    })
+});
+//////////////////////////
+//营养保健详情
 router.get('/admin_health/:cat_id',(req,res)=>{
     res.sendFile(path.resolve("./views/admin/admin_hdetails.html"));
 });
+router.get('/admin_healthcontent/:id/getThumb',(req,res)=>{
+    pool("select c_id,img_url from health where c_id=?",[req.params.id],(err,result)=>{
+        res.json(result);
+    })
+});
+
+router.get('/admin_healthcontent/del/thumb/:id',(req,res)=>{
+    pool('update health set img_url="" where c_id=?',[req.params.id],(err,result)=>{
+        if(!err){
+            res.json('ok');
+        }
+    })
+});
+
+router.post('/admin_healthcontent/upload/thumb/:id',upload.single('file'),(req,res)=>{
+    console.log(req.file);
+    const filename=req.file.filename+'.'+(req.file.mimetype.split('/')[1]);
+    async.series([(callback)=>{
+        fs.createReadStream(path.resolve(req.file.path)).pipe(fs.createWriteStream(path.resolve('./public/product',filename)));
+        callback(null);
+    },(callback)=>{
+        fs.unlink(path.resolve(req.file.path));
+        callback(null);
+    },(callback)=>{
+        pool('update health set img_url=? where c_id=?',[`/product/${filename}`,req.params.id],(err,result)=>{
+            if(!err){
+                res.json({id:req.params.id,src:`/product/${filename}`});
+            }else{
+                res.json('err');
+            }
+        })
+    }])
+});
+
+
+router.post('/admin_health/getcontentlist/:id',(req,res)=>{
+    pool('select * from health where c_id=?',[req.params.id],(err,result)=>{
+        res.json(result);
+    })
+});
+
+router.post('/admin_health/updatecontent/:cate_id', (req, res)=> {
+    console.log(req.body);
+    pool('update health set title=?,author=?, content=?,subtitle=? where c_id=?',
+        [req.body.title,req.body.author, req.body.content,req.body.subtitle,req.params.cate_id], (err, data)=> {
+            if (err) {
+                res.json('err');
+            } else {
+                res.json(data.insertId);
+            }
+        });
+});
+/////////////////////////
+//招聘列表
 router.get('/admin_recruit',(req,res)=>{
     res.sendFile(path.resolve("./views/admin/admin_Lrecruit.html"));
 });
+router.get('/admin_recruit/getid',(req,res)=>{
+    pool('select * from recruit order by id desc',(err,result)=>{
+        res.json(result);
+    })
+});
+router.get('/admin_recruit/add',(req,res)=>{
+    pool('insert into recruit (job) values ("")',(err,result)=>{
+        res.json(result.insertId);
+    })
+});
+router.get('/admin_recruit/del/:id',(req,res)=>{
+    pool('delete from recruit where id=?',[req.params.id],(err,result)=>{
+        if(!err){
+            res.redirect('/admin/admin_recruit')
+        }
+    })
+});
+/////////////////////////
+//招聘详情
 router.get('/admin_recruit/:cat_id',(req,res)=>{
     res.sendFile(path.resolve("./views/admin/admin_Lrecruit_details.html"));
 });
+router.get('/admin_recruit/:cat_id/getid',(req,res)=>{
+    pool('select * from recruit where id=?',[req.params.cat_id],(err,result)=>{
+        res.json(result);
+    })
+});
+router.post('/admin_recruit/:cat_id/updateinfo',(req,res)=>{
+
+    pool('update recruit set job=?, num=?, demand=? where id=?',[req.body.job,req.body.num,req.body.demand,req.body.id],(err,result)=>{
+        console.log(result)
+        if(!err){
+            res.json('ok')
+        }
+    })
+});
 /////////////////////////////////
+//留言查看
 router.get('/admin_message',(req,res)=>{
     res.sendFile(path.resolve("./views/admin/message.html"));
 });

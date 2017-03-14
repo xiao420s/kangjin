@@ -1,12 +1,6 @@
-const React=require('react');
+const React = require('react');
 const ReactDOM=require('react-dom');
-const common=require('./admin_common.jsx');
-const MyHeader=common.Header;
-const MySide=common.Side;
-const MyFooter=common.Footer;
-const MyCrumbs=common.Crumbs;
-import { Layout } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
+const Nav=require('./admin_nav.jsx');
 import { Button } from 'antd';
 import { Table } from 'antd';
 const columns = [{
@@ -14,14 +8,13 @@ const columns = [{
     dataIndex:'key',
 }, {
     title: '产品名称',
-    dataIndex: 'caption',
-    render: text => <a href="javascript:void(0);">{text}</a>,
+    dataIndex: 'caption'
 }, {
     title: '操作',
     dataIndex: 'action',
-    render: (text) => (
+    render: (text,record) => (
         <span>
-            {text}
+            <a href={`/admin/product/del/${record.key}`}>删除</a>
         </span>
     )
 }];
@@ -32,12 +25,11 @@ class Admin extends React.Component{
             data:[]
         };
         this.change=this.change.bind(this);
-        this.del=this.del.bind(this);
         this.add=this.add.bind(this);
     }
     change(obj){
         const that=this;
-        const index=$(obj).closest('tr').children().first().text();
+        const index=obj.id;
         const values={cate_id:index,cate_name:obj.value};
         fetch('/admin/product/updateCate',{
             credentials: 'same-origin',
@@ -58,15 +50,6 @@ class Admin extends React.Component{
                 }
         })
     }
-    del(id){
-        const that=this;
-        fetch(`/admin/product/del/${id}`,{credentials: 'same-origin'})
-            .then((res)=>res.json()).then((data)=>{
-            if(data){
-                that.setState((ps)=>({data:ps.data.filter((v)=> v.cate_id!=id)}));
-            }
-        })
-    }
     add(){
         const that=this;
         fetch('/admin/product/add',{credentials: 'same-origin'})
@@ -85,26 +68,14 @@ class Admin extends React.Component{
         });
     }
     render(){
-        const newData=this.state.data.map((v)=>({key:v.cate_id,caption:<input onChange={(e)=>this.change(e.currentTarget)} type="text" defaultValue={v.cate_name}/>,action:<a href="javascript:void(0);" onClick={()=>this.del(v.cate_id)}>删除</a>}));
+        const newData=this.state.data.map((v)=>({key:v.cate_id,caption:<input onChange={(e)=>this.change(e.currentTarget)} type="text" id={v.cate_id} defaultValue={v.cate_name}/>}));
         return (
             <div>
-                <Layout>
-                    <Header style={{height:'80px',background:'#2b3643',padding:'0'}}><MyHeader/></Header>
-                    <Layout>
-                        <Sider><MySide/></Sider>
-                        <Content style={{background:"#fff"}}>
-                            <MyCrumbs/>
-                            <div style={{padding:'0 20px'}}>
-                            <Button type="primary" style={{margin:'16px auto'}} onClick={this.add}>添加</Button>
-                            <Table columns={columns} dataSource={newData} />
-                            </div>
-                        </Content>
-                    </Layout>
-                    <Footer style={{padding:0}}><MyFooter/></Footer>
-                </Layout>
+                <Button type="primary" style={{marginBottom:'10px'}} onClick={this.add}>添加</Button>
+                <Table columns={columns} dataSource={newData} />
             </div>
         )
     }
 }
 
-ReactDOM.render(<Admin/>,document.querySelector('#page'));
+ReactDOM.render(<Nav><Admin/></Nav>,document.querySelector('#page'));

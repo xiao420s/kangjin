@@ -1,6 +1,10 @@
+.custom-card h3{
+    font-size: 12px;
+    line-height: 2em;
+}
 .Lcardbox{
     width:25%;
-    padding:10px 16px;
+    padding:10px;
     box-sizing: border-box;
     float:left;
 }

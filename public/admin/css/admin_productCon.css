@@ -2,10 +2,10 @@
   width: 800px;
   min-height: 574px;
   margin: 0 auto; }
-  .NewsContent > div {
+  .NewsContent > div >div{
     margin-top: 20px;
     overflow: hidden; }
-  .NewsContent > div > span {
+  .NewsContent > div > div > span {
     display: block;
     width: 10%;
     text-align: right;
@@ -21,29 +21,52 @@
     height: 150px;
     width: 87%;
     float: right; }
+.NewsContent .top{
+  text-align: left;
+}
+  .NewsContent .top input{
+    width: 70%;
+  }
   .NewsContent .proID {
-    width: 29%;
+    width: 6%;
     float: left;
     margin-left: 56px;
+    margin-right: 20px;
     overflow: hidden; }
     .NewsContent .proID span {
       display: block;
-      width: 10%;
+      width: 100%;
       line-height: 24px;
-      text-align: right;
+      text-align: left;
       float: left; }
-    .NewsContent .proID input {
-      width: 79%; }
+    .NewsContent .enTitle{
+      width: 40%;
+      float: left;
+    }
+.NewsContent .enTitle span{
+  display: block;
+  width: 20%;
+  line-height: 24px;
+  text-align: right;
+  float: left;
+}
+.NewsContent .enTitle input{
+  float: left;
+}
   .NewsContent .proName {
-    width: 63%;
-    float: right;
+    width: 40%;
+    float: left;
+    margin-right: 20px;
     overflow: hidden; }
     .NewsContent .proName span {
       display: block;
-      width: 12%;
+      width: 20%;
       line-height: 24px;
       text-align: right;
       float: left; }
+.NewsContent .proName input{
+  float: left;
+}
   .NewsContent .newsButton {
     text-align: center; }
   .NewsContent .ant-upload-list {

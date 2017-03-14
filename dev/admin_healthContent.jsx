@@ -25,7 +25,7 @@ class PicturesWall extends React.Component {
 
     }
     componentDidMount(){
-        fetch(`/admin/admin_news/${this.props.id}/getThumb`,{credentials: 'same-origin'})
+        fetch(`/admin/admin_healthcontent/${this.props.id}/getThumb`,{credentials: 'same-origin'})
             .then((res)=>res.json()).then((data)=>{
             console.log(data[0]);
             console.log(data[0].img_url);
@@ -37,7 +37,7 @@ class PicturesWall extends React.Component {
                         name: v.img_url.split('/')[2],
                         status: 'done',
                         url: v.img_url
-                    }
+                    };
                     return obj;
                 })})
             }
@@ -61,14 +61,14 @@ class PicturesWall extends React.Component {
     handleRemove(e){
         const flag=true;
         if(e.response){
-            fetch(`/admin/admin_news/del/thumb/${e.response.id}`,{credentials: 'same-origin'})
+            fetch(`/admin/admin_healthcontent/del/thumb/${e.response.id}`,{credentials: 'same-origin'})
                 .then((res)=>res.json()).then((data)=>{
                 if(data!='ok'){
                     const flag=false;
                 }
             })
         }else {
-            fetch(`/admin/admin_news/del/thumb/${e.uid}`,{credentials: 'same-origin'})
+            fetch(`/admin/admin_healthcontent/del/thumb/${e.uid}`,{credentials: 'same-origin'})
                 .then((res)=>res.json()).then((data)=>{
                 if(data!='ok'){
                     const flag=false;
@@ -89,7 +89,7 @@ class PicturesWall extends React.Component {
         return (
             <div className="clearfix">
                 <Upload
-                    action={`/admin/admin_news/upload/thumb/${this.props.id}`}
+                    action={`/admin/admin_healthcontent/upload/thumb/${this.props.id}`}
                     listType="picture-card"
                     fileList={fileList}
                     onPreview={this.handlePreview}
@@ -106,7 +106,7 @@ class PicturesWall extends React.Component {
     }
 }
 
-class NewsContent extends React.Component {
+class HealthContent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -118,7 +118,7 @@ class NewsContent extends React.Component {
     componentDidMount() {
         var arr = location.pathname.split('/');
         var id = arr[arr.length - 1];
-        fetch(`/admin/admin_news/getcontentlist/${id}`, {
+        fetch(`/admin/admin_health/getcontentlist/${id}`, {
             method:'post',
             credentials: 'same-origin'
         }).then((res) => res.json()).then((result) => {
@@ -128,12 +128,13 @@ class NewsContent extends React.Component {
                 data:result
             });
         });
+        console.log(this.state.data)
     }
     _submit(content) {
         var data = {title: this.title.refs.input.value, author:this.author.refs.input.value,subtitle: this.subtitle.refs.input.value, content:content};
         var arr = location.pathname.split('/');
         var id = arr[arr.length - 1];
-        fetch(`/admin/admin_news/updatecontent/${id}`, {
+        fetch(`/admin/admin_health/updatecontent/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -142,7 +143,7 @@ class NewsContent extends React.Component {
             body: JSON.stringify(data)
         }).then((res)=>res.json()).then((data)=> {
             if (data !== 'err') {
-                location.href='/admin/admin_news'
+                location.href='/admin/admin_health'
             }else{
                 console.log("err");
             }
@@ -174,20 +175,21 @@ class NewsContent extends React.Component {
                     <PicturesWall id={v.c_id} />
                 </div>
                 <div className="content">
-                    <span>新闻内容：</span>
+                    <span>内容：</span>
                     <Editor.Editor style={{height:'300px'}} content={v.content} save={this._submit}/>
                 </div>
             </form>
-        ))
+
+        ));
         return (
             <div>
                 {form}
                 <div style={{textAlign:'center'}}>
-                    <a href="/admin/admin_news"><Button type="danger" style={{position:'relative',left:'100px',top:'-38px'}}>返回</Button></a>
+                    <a href="/admin/admin_health"><Button type="danger" style={{position:'relative',left:'100px',top:'-38px'}}>返回</Button></a>
                 </div>
             </div>
         );
     }
 }
 
-ReactDOM.render(<Nav><NewsContent/></Nav>, document.querySelector('#NewsContent'));
+ReactDOM.render(<Nav><HealthContent/></Nav>, document.querySelector('#NewsContent'));

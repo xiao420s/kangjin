@@ -50,4 +50,15 @@ router.get('/green',(req,res)=>{
 router.get('/culture',(req,res)=>{
     res.sendFile(path.resolve("./views/index/Lculture.html"));
 });
+//页脚留言信息
+router.post('/message', (req, res)=> {
+    mysql('insert into message (name,email,phone,content) values(?,?,?,?)',
+        [req.body.name,req.body.mail,req.body.phone,req.body.message], (err, data)=> {
+            if (err) {
+                res.json('err');
+            } else {
+                res.json(data.insertId);
+            }
+        });
+});
 module.exports=router;
