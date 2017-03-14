@@ -1,6 +1,7 @@
 const express=require('express');
 const router=express.Router();
 const path=require('path');
+const mysql=require('../mysql.js');
 //首页
 router.get('/',(req,res)=>{
     res.sendFile(path.resolve("./views/index/index.html"));

@@ -8,7 +8,6 @@ const mysqlpool=mysql.createPool({
 });
 function pool(sql,para,fn){
     mysqlpool.getConnection((error,con)=>{
-        console.log(error);
         if(para instanceof Array){
             con.query(sql,para,(err,res)=>{
                 fn(err,res);
