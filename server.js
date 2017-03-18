@@ -31,8 +31,8 @@ app.use('/',indexRouter);
 app.use('/login',loginRouter);
 
 
-app.listen(3000,()=>{
-    console.log('服务已经启动');
+app.listen(8005,()=>{
+    console.log('8005端口已经启动,');
 });
 
 process.on('uncaughtException',()=>{
